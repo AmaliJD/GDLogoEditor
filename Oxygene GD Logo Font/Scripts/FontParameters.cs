@@ -29,7 +29,8 @@ public class FontParameters : MonoBehaviour
     private int highlightAlign;
 
     public TransparentBackgroundScreenshotRecorder BGCapture;
-
+    public RectTransform imageCaptureArea;
+    public float areaScale;
     public GameObject UI;
 
     private string text;
@@ -68,6 +69,9 @@ public class FontParameters : MonoBehaviour
         text_main.text = text;
         text_secondary.text = text;
         text_under.text = text;
+
+        imageCaptureArea.offsetMax = new Vector2(0, -(225 - (text_bg.fontSize * areaScale)));
+        imageCaptureArea.offsetMin = new Vector2(0, (225 - (text_bg.fontSize * areaScale)));
 
         text_main.color = main_color.CurrentColor;
         text_secondary.color = secondary_color.CurrentColor;
